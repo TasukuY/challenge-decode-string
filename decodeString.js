@@ -18,9 +18,23 @@ let decodeString = word => {
     for(let i = 1; i < word.length; i++){
         let index = alphabets.indexOf(word[i]) + num;
         //console.log(`index = ${index}`);
-        decodedWord += alphabets[index]
+        if(index < alphabets.length){
+            decodedWord += alphabets[index]
+        }      
     }
     return decodedWord
 }
 
-console.log(decodeString("2fcjjm"));
+function decodeString2(word){
+    let num = +word[0];
+    var unicodeString = '';
+
+    for(let i = 1; i < word.length; i++){
+        var cahrToUni = word[i].charCodeAt(0);
+        var newChar = String.fromCharCode(cahrToUni + num);
+        unicodeString += newChar
+    }
+    return unicodeString
+}
+
+console.log(test("2fcjjm"));
